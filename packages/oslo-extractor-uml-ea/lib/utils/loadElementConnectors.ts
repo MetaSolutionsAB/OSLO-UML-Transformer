@@ -54,6 +54,7 @@ export function loadElementConnectors(
         <number>item.Package_ID,
         Number.parseInt(<string>item.PDATA1, 10) || null,
         convertToConnectorDirection(<string>item.Direction),
+        <string>item.Notes,
       ),
   );
 

@@ -54,6 +54,8 @@ export class AssociationWithDestinationRoleConnectorCase
         connector.destinationObjectId,
         connector.destinationCardinality,
         tags,
+        undefined,
+        connector.notes
       ),
     ];
   }

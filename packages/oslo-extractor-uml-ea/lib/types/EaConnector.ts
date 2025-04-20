@@ -36,11 +36,11 @@ export class EaConnector extends EaObject {
     sourceRole: string,
     destinationRole: string,
     packageId: number,
-    
     associationClassId: number | null,
     direction: ConnectorDirection = ConnectorDirection.Unspecified,
+    notes: string
   ) {
-    super(id, name, guid);
+    super(id, name, guid, notes);
 
     this.type = type;
     this.sourceObjectId = sourceObjectId;

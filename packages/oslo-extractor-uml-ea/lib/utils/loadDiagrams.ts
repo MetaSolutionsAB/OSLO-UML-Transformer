@@ -21,6 +21,7 @@ export function loadDiagrams(
         <string>item.Name,
         <string>item.ea_guid,
         <number>item.Package_ID,
+        <string>item.Notes
       ),
   );
 

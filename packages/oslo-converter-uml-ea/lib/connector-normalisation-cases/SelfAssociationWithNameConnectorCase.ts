@@ -107,6 +107,8 @@ export class SelfAssociationWithNameConnectorCase implements IConnectorNormalisa
             connector.destinationObjectId,
           connector.sourceCardinality ?? connector.destinationCardinality,
           tags,
+          undefined,
+          connector.notes
         ),
       );
     }

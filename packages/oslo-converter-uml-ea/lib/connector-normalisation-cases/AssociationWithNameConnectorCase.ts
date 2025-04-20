@@ -89,6 +89,8 @@ export class AssociationWithNameConnectorCase implements IConnectorNormalisation
           connector.sourceObjectId,
           connector.sourceCardinality,
           tags,
+          undefined,
+          connector.notes
         ),
       );
     }
@@ -108,6 +110,8 @@ export class AssociationWithNameConnectorCase implements IConnectorNormalisation
           connector.destinationObjectId,
           connector.destinationCardinality,
           tags,
+          undefined,
+          connector.notes
         ),
       );
     }

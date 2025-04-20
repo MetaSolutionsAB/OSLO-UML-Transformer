@@ -108,6 +108,8 @@ export class AssociationWithAssociationClassConnectorCase
         connector.sourceObjectId,
         '1',
         sTags,
+        undefined,
+        connector.notes
       ),
     );
 
@@ -138,6 +140,8 @@ export class AssociationWithAssociationClassConnectorCase
         connector.destinationObjectId,
         '1',
         dTags,
+        undefined,
+        connector.notes
       ),
     );
 

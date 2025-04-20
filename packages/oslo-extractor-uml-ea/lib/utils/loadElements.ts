@@ -21,6 +21,7 @@ export function loadElements(mdb: MDBReader, model: DataRegistry): DataRegistry 
     <string>item.ea_guid,
     getElementType(<string>item.Object_Type),
     <number>item.Package_ID,
+    <string>item.Note,
   ));
 
   model.elements.forEach(element => setElementPath(element, model.packages));

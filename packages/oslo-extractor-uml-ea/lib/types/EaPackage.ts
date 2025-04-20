@@ -19,8 +19,9 @@ export class EaPackage extends EaObject {
     guid: string,
     packageId: number,
     parentId: number,
+    notes: string
   ) {
-    super(id, name, guid);
+    super(id, name, guid, notes);
 
     this.packageId = packageId;
     this.parentId = parentId;

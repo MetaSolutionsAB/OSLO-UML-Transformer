@@ -234,6 +234,17 @@ export abstract class ConverterHandler<T extends EaObject> {
       graph,
       quads,
     );
+
+    if (object.notes) {
+      // The name of the object as it appears on the diagram is also provided
+      this.addValuesToQuads(
+        [this.df.literal(object.notes, this.config.language)],
+        objectInternalId,
+        ns.oslo('diagramNotes'),
+        graph,
+        quads,
+      );
+    }
   }
 
   public addStatus(

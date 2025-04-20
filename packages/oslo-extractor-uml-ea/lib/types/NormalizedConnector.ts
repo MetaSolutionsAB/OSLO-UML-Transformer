@@ -20,11 +20,13 @@ export class NormalizedConnector extends EaObject {
     cardinality: string,
     tags: EaTag[] = [],
     type: NormalizedConnectorTypes = NormalizedConnectorTypes.RegularConnector,
+    notes: string | undefined,
   ) {
     super(
       Math.floor(Math.random() * Date.now()),
       name,
       originalConnector.eaGuid,
+      notes,
     );
     this._sourceObjectId = sourceObjectId;
     this._destinationObjectId = destinationObjectId;

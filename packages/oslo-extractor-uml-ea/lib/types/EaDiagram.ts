@@ -14,8 +14,9 @@ export class EaDiagram extends EaObject {
     name: string,
     guid: string,
     packageId: number,
+    notes: string,
   ) {
-    super(id, name, guid);
+    super(id, name, guid, notes);
 
     this.packageId = packageId;
     this.connectorsIds = [];

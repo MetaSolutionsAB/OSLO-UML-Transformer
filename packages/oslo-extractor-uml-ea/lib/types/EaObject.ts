@@ -4,15 +4,17 @@ export abstract class EaObject {
   public readonly id: number;
   public readonly name: string;
   public readonly eaGuid: string;
+  public readonly notes: string | undefined;
   private _osloGuid: string | undefined;
   private _path: string | undefined;
   public tags: EaTag[];
 
-  public constructor(id: number, name: string, guid: string) {
+  public constructor(id: number, name: string, guid: string, notes?: string) {
     this.id = id;
     this.name = name;
     this.eaGuid = guid;
     this.tags = [];
+    this.notes = notes;
   }
 
   public get osloGuid(): string {

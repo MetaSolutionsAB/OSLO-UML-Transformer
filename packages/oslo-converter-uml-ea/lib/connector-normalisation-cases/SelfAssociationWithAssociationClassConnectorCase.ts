@@ -128,6 +128,8 @@ export class SelfAssociationWithAssociationClassConnectorCase
         connector.sourceObjectId,
         '1',
         sourceBaseClassTags,
+        undefined,
+        connector.notes
       ),
       new NormalizedConnector(
         connector,
@@ -136,6 +138,8 @@ export class SelfAssociationWithAssociationClassConnectorCase
         connector.destinationObjectId,
         '1',
         targetBaseClassTags,
+        undefined,
+        connector.notes
       ),
     );
 

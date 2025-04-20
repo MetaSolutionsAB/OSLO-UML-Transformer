@@ -51,6 +51,8 @@ export class AssocationWithSourceRoleConnectorCase
         connector.sourceObjectId,
         connector.sourceCardinality,
         tags,
+        undefined,
+        connector.notes
       ),
     ];
   }

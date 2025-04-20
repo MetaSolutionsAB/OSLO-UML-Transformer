@@ -21,6 +21,7 @@ export function loadPackages(mdb: MDBReader, model: DataRegistry): DataRegistry 
     <string>item.ea_guid,
     <number>item.Package_ID,
     <number>item.Parent_ID,
+    <string>item.Note,
   ));
 
   // For each package, find and set their parent (if it exists) and add it to their path
