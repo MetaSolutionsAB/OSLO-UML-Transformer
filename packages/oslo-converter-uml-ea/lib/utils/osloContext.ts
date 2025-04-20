@@ -40,6 +40,9 @@ export function getOsloContext(): any {
     diagramLabel: {
       '@id': 'oslo:diagramLabel',
     },
+    diagramNotes: {
+      '@id': 'oslo:diagramNotes',
+    },
     scope: {
       '@id': 'oslo:scope',
     },

@@ -220,6 +220,17 @@ export class AttributeConverterHandler extends ConverterHandler<EaAttribute> {
     // Adding definitions, labels, usage notes and status
     this.addEntityInformation(object, attributeInternalId, quads);
 
+    // The note of the object as it appears on the diagram is also provided
+    if (object.notes) {
+      quads.push(
+        this.df.quad(
+          attributeInternalId,
+          ns.oslo('diagramNotes'),
+          this.df.literal(object.notes, this.config.language),
+        )
+      );
+    }
+
     const packageBaseUri: URL | undefined = uriRegistry.packageIdUriMap.get(
       model.targetDiagram.packageId,
     );

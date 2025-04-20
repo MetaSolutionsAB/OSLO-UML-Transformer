@@ -374,6 +374,9 @@ export class JsonLdOutputHandler implements IOutputHandler {
     const apUsageNotes: RDF.Quad[] = usageNotes.filter((x) =>
       x.predicate.equals(ns.oslo('apUsageNote')),
     );
+    const diagramNotes: RDF.Quad[] = usageNotes.filter((x) =>
+      x.predicate.equals(ns.oslo('diagramNotes')),
+    );
 
     return {
       ...(vocUsageNotes.length > 0 && {
@@ -381,6 +384,9 @@ export class JsonLdOutputHandler implements IOutputHandler {
       }),
       ...(apUsageNotes.length > 0 && {
         apUsageNote: apUsageNotes.map((x) => this.mapToLiteral(x)),
+      }),
+      ...(diagramNotes.length > 0 && {
+        diagramNotes: diagramNotes.map((x) => this.mapToLiteral(x)),
       }),
     };
   }

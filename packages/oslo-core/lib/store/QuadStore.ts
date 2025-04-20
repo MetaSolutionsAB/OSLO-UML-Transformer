@@ -243,6 +243,24 @@ export class QuadStore {
   }
 
   /**
+   * Finds the oslo:diagramNotes for a given subject
+   * @param subject The RDF.Term to find the oslo:diagramNotes for
+   * @param store A N3 quad store
+   * @param language A language tag
+   * @returns An RDF.Literal or undefined if not found
+   */
+  public getDiagramNotes(
+    subject: RDF.Term,
+    graph: RDF.Term | null = null,
+  ): RDF.Literal | undefined {
+    return <RDF.Literal>(
+      this.getLabels(subject, graph).find((x: RDF.Quad) =>
+        x.predicate.equals(ns.oslo('diagramNotes')),
+      )?.object
+    );
+  }
+
+  /**
    * Find all definitions for a given subject
    * @param subject The RDF.Term to find the definitions for
    * @param store A N3 quad store
@@ -363,7 +381,15 @@ export class QuadStore {
       null,
       graph,
     );
-    return vocUsageNotes.concat(apUsageNotes);
+
+    const diagramNotes: RDF.Quad[] = this.store.getQuads(
+      subject,
+      ns.oslo('diagramNotes'),
+      null,
+      graph,
+    );
+
+    return vocUsageNotes.concat(apUsageNotes).concat(diagramNotes);
   }
 
   /**
