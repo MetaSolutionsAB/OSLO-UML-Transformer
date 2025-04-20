@@ -9,7 +9,6 @@ import { EaObject } from '../types/EaObject';
 export class EaElement extends EaObject {
   public readonly type: ElementType;
   public readonly packageId: number;
-  public readonly notes: string | undefined;
 
   public constructor(
     id: number,
@@ -23,7 +22,6 @@ export class EaElement extends EaObject {
 
     this.type = type;
     this.packageId = packageId;
-    this.notes = notes;
 
     this.osloGuid = uniqueId(guid, name, id);
   }

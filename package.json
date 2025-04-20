@@ -59,6 +59,7 @@
   },
   "dependencies": {
     "@oslo-flanders/ea-converter": "^0.0.5-alpha.0",
+    "entities": "^6.0.0",
     "lerna": "^8.1.8",
     "reflect-metadata": "^0.1.13"
   }

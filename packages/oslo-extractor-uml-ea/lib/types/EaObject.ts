@@ -1,4 +1,5 @@
 import type { EaTag } from './EaTag';
+import { decodeXML } from 'entities';
 
 export abstract class EaObject {
   public readonly id: number;
@@ -14,7 +15,7 @@ export abstract class EaObject {
     this.name = name;
     this.eaGuid = guid;
     this.tags = [];
-    this.notes = notes;
+    this.notes = notes ? decodeXML(notes) : undefined;
   }
 
   public get osloGuid(): string {
