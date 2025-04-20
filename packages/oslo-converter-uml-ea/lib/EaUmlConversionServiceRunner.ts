@@ -54,6 +54,7 @@ export class EaUmlConversionServiceRunner extends AppRunner<
         default: false,
         boolean: true,
       })
+      .option('language', { describe: 'Language to use when explicit language is missing.' })
       .demandOption(
         ['umlFile', 'diagramName', 'versionId', 'publicationEnvironment'],
         'Please provide the necessary arguments to work with this tool.',

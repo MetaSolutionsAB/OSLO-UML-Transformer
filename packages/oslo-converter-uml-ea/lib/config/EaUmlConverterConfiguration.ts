@@ -1,4 +1,5 @@
 import type { IConfiguration, YargsParams } from '@oslo-flanders/core';
+import { Language } from '@oslo-flanders/core/lib/enums/Language';
 import { injectable } from 'inversify';
 
 @injectable()
@@ -32,6 +33,12 @@ export class EaUmlConverterConfiguration implements IConfiguration {
    * The base URI of the environment where the document will be published
    */
   private _publicationEnvironment: string | undefined;
+
+  /**
+   * Language to use when explicit language is missing.
+   */
+  private _language: string | undefined;
+
   /**
    * A boolean to enable debug mode which is more resilient to errors
    */
@@ -49,6 +56,7 @@ export class EaUmlConverterConfiguration implements IConfiguration {
     this._versionId = <string>params.versionId;
     this._outputFormat = <string>params.outputFormat;
     this._publicationEnvironment = <string>params.publicationEnvironment;
+    this._language = <string>params.language;
     this._allTags = <boolean>params.allTags;
     this._debug = <boolean>params.debug;
   }
@@ -103,6 +111,13 @@ export class EaUmlConverterConfiguration implements IConfiguration {
       );
     }
     return this._publicationEnvironment;
+  }
+
+  public get language(): string {
+    if (this._language) {
+      return this._language;
+    }
+    return Language.NL;
   }
 
   public get allTags(): boolean {

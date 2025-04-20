@@ -1,0 +1,239 @@
+{
+  "@context": {
+    "oslo": "https://implementatie.data.vlaanderen.be/ns/oslo-toolchain#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rec": "http://www.w3.org/2001/02pd/rec54#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "adms": "http://www.w3.org/ns/adms#",
+    "packages": "@included",
+    "classes": "@included",
+    "datatypes": "@included",
+    "attributes": "@included",
+    "referencedEntities": "@included",
+    "baseURI": {
+      "@id": "oslo:baseURI",
+      "@type": "@id"
+    },
+    "vocDefinition": {
+      "@id": "oslo:vocDefinition",
+      "@container": "@set"
+    },
+    "apDefinition": {
+      "@id": "oslo:apDefinition",
+      "@container": "@set"
+    },
+    "vocLabel": {
+      "@id": "oslo:vocLabel",
+      "@container": "@set"
+    },
+    "apLabel": {
+      "@id": "oslo:apLabel",
+      "@container": "@set"
+    },
+    "diagramLabel": {
+      "@id": "oslo:diagramLabel"
+    },
+    "scope": {
+      "@id": "oslo:scope"
+    },
+    "vocUsageNote": {
+      "@id": "oslo:vocUsageNote",
+      "@container": "@set"
+    },
+    "apUsageNote": {
+      "@id": "oslo:apUsageNote",
+      "@container": "@set"
+    },
+    "domain": {
+      "@id": "rdfs:domain",
+      "@container": "@set"
+    },
+    "range": {
+      "@id": "rdfs:range"
+    },
+    "minCount": {
+      "@id": "sh:minCount"
+    },
+    "maxCount": {
+      "@id": "sh:maxCount"
+    },
+    "parent": {
+      "@id": "rdfs:subClassOf",
+      "@type": "owl:Class"
+    },
+    "generatedAtTime": {
+      "@id": "prov:generatedAtTime"
+    },
+    "Package": "oslo:Package",
+    "Class": {
+      "@id": "owl:Class"
+    },
+    "DatatypeProperty": {
+      "@id": "owl:DatatypeProperty"
+    },
+    "ObjectProperty": {
+      "@id": "owl:ObjectProperty"
+    },
+    "authors": {
+      "@type": "foaf:Person",
+      "@id": "foaf:maker"
+    },
+    "editors": {
+      "@type": "foaf:Person",
+      "@id": "rec:editor"
+    },
+    "contributors": {
+      "@type": "foaf:Person",
+      "@id": "dcterms:contributor"
+    },
+    "affiliation": {
+      "@id": "http://schema.org/affiliation"
+    },
+    "assignedURI": {
+      "@id": "oslo:assignedURI",
+      "@type": "@id"
+    },
+    "Datatype": {
+      "@id": "rdfs:Datatype"
+    },
+    "codelist": {
+      "@id": "oslo:codelist",
+      "@type": "@id"
+    },
+    "status": {
+      "@id": "adms:status",
+      "@type": "@id"
+    }
+  },
+  "@id": "https://dataportal.se/example",
+  "generatedAtTime": "2025-04-20T11:27:02.360Z",
+  "packages": [
+    {
+      "@id": "urn:oslo-toolchain:14fa3aedf5cb1d55a30c674e9f60fd88998c5dc7da4f57845e8acbe1c76324d6",
+      "@type": "Package",
+      "assignedURI": "http://example.com/test",
+      "baseURI": "http://example.com/test/"
+    }
+  ],
+  "classes": [
+    {
+      "@id": "urn:oslo-toolchain:854556976151e41fac23039c667336877cd264d36c5f3b1c3245053a18362825",
+      "@type": "Class",
+      "assignedURI": "http://example.com/test/Person",
+      "diagramLabel": [
+        {
+          "@value": "Person"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "urn:oslo-toolchain:ac44559b510f8f6e32912a2d589c78192af3b48dd0a431f123eec5c3bca72f4a",
+      "@type": "Class",
+      "assignedURI": "http://example.com/test/Basket",
+      "diagramLabel": [
+        {
+          "@value": "Basket"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "urn:oslo-toolchain:bfc0380ba6e90304725f09ee6e6fa677c06776d641d09ab857ce28fcf0c1ecb5",
+      "@type": "Class",
+      "assignedURI": "http://example.com/test/Identity",
+      "diagramLabel": [
+        {
+          "@value": "Identity"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    }
+  ],
+  "attributes": [
+    {
+      "@id": "urn:oslo-toolchain:874f02ce0d48432d0825fc1b4e3e0c322b4d823cb27362a70f744b77ca6168b9",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://purl.org/dc/terms/identifier",
+      "apLabel": [
+        {
+          "@language": "en",
+          "@value": "Identifier"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Identifierare"
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "sv",
+          "@value": "Personnummer FYI"
+        },
+        {
+          "@language": "en",
+          "@value": "Personal number FTW"
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:bfc0380ba6e90304725f09ee6e6fa677c06776d641d09ab857ce28fcf0c1ecb5"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:487667944"
+      },
+      "minCount": "null",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External"
+    },
+    {
+      "@id": "urn:oslo-toolchain:099ae9c2eb9c052d1d5daf3bb41cebee0787ac8be35ed7f3c540ad8148f0d95e",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://example.com/test/tax",
+      "diagramLabel": [
+        {
+          "@value": "skatt"
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:854556976151e41fac23039c667336877cd264d36c5f3b1c3245053a18362825"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:286333439"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    }
+  ],
+  "datatypes": [
+    {
+      "@id": "urn:oslo-toolchain:487667944",
+      "@type": "Datatype",
+      "assignedURI": "http://www.w3.org/2001/XMLSchema#string",
+      "diagramLabel": [
+        {
+          "@value": "string"
+        }
+      ]
+    },
+    {
+      "@id": "urn:oslo-toolchain:286333439",
+      "@type": "Datatype",
+      "assignedURI": "http://www.w3.org/2001/XMLSchema#boolean",
+      "diagramLabel": [
+        {
+          "@value": "boolean"
+        }
+      ]
+    }
+  ],
+  "referencedEntities": []
+}

@@ -395,7 +395,7 @@ export abstract class ConverterHandler<T extends EaObject> {
       const knownLanguageCodes = <string[]>Object.values(Language);
       languageCode = knownLanguageCodes.includes(languageCode)
         ? languageCode
-        : Language.NL;
+        : this.config.language;
 
       const tagValue: string = tag.tagValue;
       if (!tagValue) {
