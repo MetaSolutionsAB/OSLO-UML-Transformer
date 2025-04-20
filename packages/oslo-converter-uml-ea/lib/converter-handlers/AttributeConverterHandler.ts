@@ -400,7 +400,7 @@ export class AttributeConverterHandler extends ConverterHandler<EaAttribute> {
       this.df.quad(
         rangeInternalId,
         ns.oslo('diagramLabel'),
-        this.df.literal(rangeLabel),
+        this.df.literal(rangeLabel, this.config.language),
       ),
     );
 

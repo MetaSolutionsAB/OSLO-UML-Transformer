@@ -334,7 +334,7 @@ export class JsonLdOutputHandler implements IOutputHandler {
         apLabel: apLabels.map((x) => this.mapToLiteral(x)),
       }),
       ...(diagramLabels.length > 0 && {
-        diagramLabel: diagramLabels.map((x) => this.mapToLiteral(x, false)),
+        diagramLabel: diagramLabels.map((x) => this.mapToLiteral(x)),
       }),
     };
   }

@@ -197,7 +197,7 @@ export abstract class ConverterHandler<T extends EaObject> {
 
     // The name of the object as it appears on the diagram is also provided
     this.addValuesToQuads(
-      [this.df.literal(object.name)],
+      [this.df.literal(object.name, this.config.language)],
       objectInternalId,
       ns.oslo('diagramLabel'),
       graph,
