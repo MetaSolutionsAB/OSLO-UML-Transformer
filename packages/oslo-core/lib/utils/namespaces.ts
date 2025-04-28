@@ -1,4 +1,6 @@
 import { DataFactory } from 'rdf-data-factory';
+import { URL } from 'url';
+
 
 const factory = new DataFactory();
 
@@ -39,3 +41,28 @@ const vocab = (): Namespace => {
 };
 
 export const ns = vocab();
+
+const customPrefixes = {};
+
+export const registerPrefix = (prefix: string, expansion: string) => {
+  if (prefix in Prefixes || prefix in customPrefixes) {
+    return;
+  }
+  // @ts-ignore
+  customPrefixes[prefix] = expansion;
+}
+
+export const expandToURL = (str: string) => {
+  const matched = str.match(/^([^:]*)\:([^:]*)$/)
+  if (matched) {
+    const [all, prefix, localName] = matched;
+    if (prefix in Prefixes) {
+      // @ts-ignore
+      return new URL(`${Prefixes[prefix]}${localName}`);
+    } else if (prefix in customPrefixes) {
+      // @ts-ignore
+      return new URL(`${customPrefixes[prefix]}${localName}`);
+    }
+  }
+  return new URL(str);
+}

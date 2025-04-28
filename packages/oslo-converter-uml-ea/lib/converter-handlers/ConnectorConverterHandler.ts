@@ -1,6 +1,6 @@
 import { URL } from 'url';
 import type { QuadStore } from '@oslo-flanders/core';
-import { ns } from '@oslo-flanders/core';
+import { ns, expandToURL } from '@oslo-flanders/core';
 import type {
   DataRegistry,
   EaElement,
@@ -102,7 +102,7 @@ export class ConnectorConverterHandler extends ConverterHandler<NormalizedConnec
         try {
           uriRegistry.connectorOsloIdUriMap.set(
             connector.id,
-            new URL(externalUri),
+            expandToURL(externalUri),
           );
         } catch (error: unknown) {
           throw new Error(

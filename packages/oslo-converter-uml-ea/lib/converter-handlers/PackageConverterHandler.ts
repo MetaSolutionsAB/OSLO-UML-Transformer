@@ -1,13 +1,13 @@
-import { URL } from 'url';
-import type { QuadStore } from '@oslo-flanders/core';
-import { ns } from '@oslo-flanders/core';
-import type { DataRegistry, EaPackage } from '@oslo-flanders/ea-uml-extractor';
+import {URL} from 'url';
+import type {QuadStore} from '@oslo-flanders/core';
+import {ns, registerPrefix} from '@oslo-flanders/core';
+import type {DataRegistry, EaPackage} from '@oslo-flanders/ea-uml-extractor';
 import type * as RDF from '@rdfjs/types';
-import { injectable } from 'inversify';
-import { TagNames } from '../enums/TagNames';
-import { ConverterHandler } from '../interfaces/ConverterHandler';
-import type { UriRegistry } from '../UriRegistry';
-import { getTagValue, ignore } from '../utils/utils';
+import {injectable} from 'inversify';
+import {TagNames} from '../enums/TagNames';
+import {ConverterHandler} from '../interfaces/ConverterHandler';
+import type {UriRegistry} from '../UriRegistry';
+import {getTagValue, ignore} from '../utils/utils';
 
 @injectable()
 export class PackageConverterHandler extends ConverterHandler<EaPackage> {
@@ -96,6 +96,9 @@ export class PackageConverterHandler extends ConverterHandler<EaPackage> {
           `[PackageConverterHandler]: Unable to create URL from ontology URI (${ontologyURI}) for package (${packageObject.path}).`,
         );
       }
+
+      const prefixes = this.getParameterizedValues(packageObject, TagNames.Prefix);
+      prefixes.forEach(({key, value}) => registerPrefix(key, value))
     });
 
     return uriRegistry;

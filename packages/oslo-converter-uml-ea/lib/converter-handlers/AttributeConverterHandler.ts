@@ -1,6 +1,6 @@
 import { URL } from 'url';
 import type { QuadStore } from '@oslo-flanders/core';
-import { PropertyType, ns } from '@oslo-flanders/core';
+import { PropertyType, ns, expandToURL } from '@oslo-flanders/core';
 
 import { ElementType } from '@oslo-flanders/ea-uml-extractor';
 import type {
@@ -95,7 +95,7 @@ export class AttributeConverterHandler extends ConverterHandler<EaAttribute> {
       );
       if (externalUri) {
         try {
-          uriRegistry.attributeIdUriMap.set(attribute.id, new URL(externalUri));
+          uriRegistry.attributeIdUriMap.set(attribute.id, expandToURL(externalUri));
         } catch (error: unknown) {
           throw new Error(
             `[AttributeConverterHandler]: Invalid URL (${externalUri}) for attribute (${attribute.path})`,

@@ -385,6 +385,47 @@ export abstract class ConverterHandler<T extends EaObject> {
   }
 
   /**
+   * Returns all parametrized values of tags that contain the tag name
+   * @param object — The object to extract the tag values from
+   * @param name  — The name of the tag
+   */
+  public getParameterizedValues(object: T, name: TagNames): { key:string, value:string }[] {
+    const tags: EaTag[] = object.tags.filter((x: EaTag) =>
+      x.tagName.startsWith(name),
+    );
+    const pairs: { key:string, value:string }[] = [];
+
+    const keyToValueMap = new Map<string, string>();
+
+    tags.forEach((tag: EaTag) => {
+      const parts: string[] = tag.tagName.split('-');
+      let key: string = parts[parts.length - 1];
+
+      const tagValue: string = tag.tagValue;
+      if (!tagValue) {
+        this.logger.warn(
+          `[ConverterHandler]: Entity with path ${object.path} has an empty value for tag ${tag.tagName}.`,
+        );
+        return;
+      }
+
+      if (keyToValueMap.has(key)) {
+        this.logger.warn(
+          `[ConverterHandler]: Entity with path ${object.path} has already a value for ${tag.tagName} for ${key}, but will be overwritten.`,
+        );
+      }
+
+      keyToValueMap.set(key, tag.tagValue);
+    });
+
+    keyToValueMap.forEach((value: string, key: string) => {
+      pairs.push({key, value: value.trim()});
+    });
+
+    return pairs;
+  }
+
+  /**
    * Returns all values of tags that contain the tag name
    * @param object — The object to extract the tag values from
    * @param name  — The name of the tag
